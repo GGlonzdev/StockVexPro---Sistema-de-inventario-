@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Inventario - StockVexPro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>StockVexPro</h1>
+                <p id="header-stats">4 productos • $5,799 total</p>
+            </div>
+            <button class="btn-primary" id="new-product-btn">
+                <span>+</span>
+                Nuevo
+            </button>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="total-products">4</div>
+                <div class="stat-label">Productos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-value">$5K</div>
+                <div class="stat-label">Valor Total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number red" id="low-stock">1</div>
+                <div class="stat-label">Stock Bajo</div>
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <div class="search-input">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Busqueda...">
+            </div>
+            <select class="category-filter" id="category-filter">
+                <option value="">Seleccione</option>
+                <option value="Laptops">Laptops</option>
+                <option value="Smartphones">Smartphones</option>
+                <option value="Tablets">Tablets</option>
+                <option value="Accesorios">Accesorios</option>
+                <option value="Audio">Audio</option>
+                <option value="Gaming">Gaming</option>
+                <opttion value="Hogar">Hogar</opttion>
+            </select>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+        </div>
+
+        <div class="empty-state hidden" id="empty-state">
+            <div style="font-size: 48px; margin-bottom: 16px;">📦</div>
+            <p>No se encuentra producto</p>
+        </div>
+    </div>
+      
+    <div class="modal hidden" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">Nuevo Producto</h2>
+                <button class="btn-icon" id="close-modal">✕</button>
+            </div>
+            
+            <form id="product-form">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="name" placeholder="Nombre *">
+                    <div class="error-message hidden" id="name-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-input" id="sku" placeholder="SKU *">
+                    <div class="error-message hidden" id="sku-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-input" id="description" placeholder="Descripción *" rows="2"></textarea>
+                    <div class="error-message hidden" id="description-error"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="number" class="form-input" id="price" placeholder="Precio *" step="0.01">
+                        <div class="error-message hidden" id="price-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-input" id="stock" placeholder="Stock *">
+                        <div class="error-message hidden" id="stock-error"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-input" id="supplier">
+                        <option value="">Proveedor *</option>
+                        <option value="Apple Inc.">Apple Inc.</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="Dell">Dell</option>
+                        <option value="HP">HP</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="Sony">Sony</option>
+                        <option value="Microsoft">Microsoft</option>
+                        <option value="Amazon">Amazon</option>
+
+                    </select>
+                    <div class="error-message hidden" id="supplier-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-input" id="category">
+                        <option value="">Categoria *</option>
+                        <option value="Laptops">Laptops</option>
+                        <option value="Smartphones">Smartphones</option>
+                        <option value="Tablets">Tablets</option>
+                        <option value="Accesorios">Accesorios</option>
+                        <option value="Audio">Audio</option>
+                        <option value="Gaming">Gaming</option>
+                    </select>
+                    <div class="error-message hidden" id="category-error"></div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancel-btn">Cancelar</button>
+                    <button type="submit" class="btn-primary" id="submit-btn">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
