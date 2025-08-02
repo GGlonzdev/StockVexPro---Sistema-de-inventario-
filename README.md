@@ -4,7 +4,7 @@ Este es un sistema de inventario web el cual fue diseñado para gestionar produc
 
 #Funcionalidades 
 
-- Registro de nuevo producto 
+- Descripcion nuevo producto 
 - Busqueda de productos 
 - Filtros por categorias 
 - Estadisticas: Muestra la cantidad total, valor acumulado y productos con bajo stock
